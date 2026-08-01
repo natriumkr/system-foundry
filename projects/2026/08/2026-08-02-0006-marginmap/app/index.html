@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="온라인 판매자를 위한 실제 마진 및 목표 판매가 계산기" />
+    <title>MarginMap - 진짜 남는 가격 찾기</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="topbar">
+        <a class="brand" href="#">Margin<span>Map</span></a>
+        <div class="badge">LOCAL-FIRST · NO SIGN-UP</div>
+      </header>
+
+      <main>
+        <section class="hero">
+          <div>
+            <p class="eyebrow">SELLER UNIT ECONOMICS</p>
+            <h1>매출이 아니라<br /><em>남는 돈</em>을 계산하세요.</h1>
+          </div>
+          <p class="hero-copy">플랫폼 수수료, 광고비, 배송비, 반품 기대비용, 월 고정비를 한 번에 반영해 실제 마진과 목표 판매가를 찾습니다.</p>
+        </section>
+
+        <section class="workspace">
+          <form id="calculator-form" class="panel input-panel" novalidate>
+            <div class="panel-heading">
+              <div>
+                <p class="step">01 · INPUT</p>
+                <h2>상품 조건</h2>
+              </div>
+              <button type="reset" onclick="setTimeout(() => location.reload(), 0)">초기화</button>
+            </div>
+
+            <div class="form-section">
+              <h3>가격과 원가</h3>
+              <div class="field-grid">
+                <label>판매가 <span>원</span><input name="sellingPrice" type="number" min="1" value="39000" required /></label>
+                <label>상품 원가 <span>원</span><input name="productCost" type="number" min="0" value="14000" required /></label>
+                <label>입고 배송비 <span>원</span><input name="inboundShipping" type="number" min="0" value="800" required /></label>
+                <label>출고 배송비 <span>원</span><input name="outboundShipping" type="number" min="0" value="3200" required /></label>
+                <label>포장비 <span>원</span><input name="packagingCost" type="number" min="0" value="700" required /></label>
+                <label>반품 처리비 <span>원</span><input name="returnHandlingCost" type="number" min="0" value="2500" required /></label>
+              </div>
+            </div>
+
+            <div class="form-section">
+              <h3>비율 비용</h3>
+              <div class="field-grid">
+                <label>플랫폼 수수료 <span>%</span><input name="platformFeePct" type="number" min="0" max="100" step="0.1" value="10.8" required /></label>
+                <label>결제 수수료 <span>%</span><input name="paymentFeePct" type="number" min="0" max="100" step="0.1" value="2.9" required /></label>
+                <label>광고비율 <span>%</span><input name="adCostPct" type="number" min="0" max="100" step="0.1" value="7" required /></label>
+                <label>세금 적립률 <span>%</span><input name="vatReservePct" type="number" min="0" max="100" step="0.1" value="3" required /></label>
+                <label>예상 반품률 <span>%</span><input name="returnRatePct" type="number" min="0" max="100" step="0.1" value="6" required /></label>
+                <label>목표 마진율 <span>%</span><input name="targetMarginPct" type="number" min="0" max="100" step="0.1" value="25" required /></label>
+              </div>
+            </div>
+
+            <div class="form-section last">
+              <h3>월 운영</h3>
+              <div class="field-grid">
+                <label>월 주문량 <span>건</span><input name="monthlyOrders" type="number" min="1" step="1" value="180" required /></label>
+                <label>월 고정비 <span>원</span><input name="fixedMonthlyCost" type="number" min="0" value="450000" required /></label>
+              </div>
+            </div>
+          </form>
+
+          <aside class="panel result-panel">
+            <div class="panel-heading">
+              <div>
+                <p class="step">02 · RESULT</p>
+                <h2>마진 지도</h2>
+              </div>
+              <button id="export-csv" type="button">CSV 내보내기</button>
+            </div>
+
+            <div id="profit-card" class="profit-card" data-state="positive">
+              <p>주문 1건당 실제 이익</p>
+              <strong id="unit-profit">-</strong>
+              <div><span>실제 마진율</span><b id="margin">-</b></div>
+            </div>
+
+            <div class="target-grid">
+              <article><span>손익분기 판매가</span><strong id="break-even">-</strong></article>
+              <article class="accent"><span>목표 마진 판매가</span><strong id="target-price">-</strong></article>
+            </div>
+
+            <div class="monthly-card">
+              <span>예상 월 이익</span>
+              <strong id="monthly-profit">-</strong>
+            </div>
+
+            <div class="cost-stack">
+              <h3>주문 1건 비용 구성</h3>
+              <div><span>총비용</span><b id="total-cost">-</b></div>
+              <div><span>수수료·광고·세금 적립</span><b id="fee-cost">-</b></div>
+              <div><span>반품 기대비용</span><b id="return-cost">-</b></div>
+              <div><span>고정비 배분</span><b id="fixed-cost">-</b></div>
+            </div>
+
+            <p id="status" class="status" aria-live="polite"></p>
+          </aside>
+        </section>
+      </main>
+
+      <footer><span>MarginMap MVP</span><span>계산 결과는 경영 참고용이며 세무 자문이 아닙니다.</span></footer>
+    </div>
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>

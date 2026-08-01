@@ -1,0 +1,32 @@
+{
+  "name": "2026-08-02-0006-marginmap",
+  "product_name": "MarginMap",
+  "status": "PASS",
+  "created_at": "2026-08-02T00:06:00+09:00",
+  "category": "seller-operations",
+  "target_customer": "Korean solo online sellers and small ecommerce operators",
+  "problem": "Sellers underestimate costs spread across fees, ads, returns, shipping, and fixed overhead.",
+  "core_features": [
+    "True unit profit and monthly profit calculator",
+    "Break-even and target-margin price solver",
+    "CSV result export"
+  ],
+  "stack": ["HTML", "CSS", "JavaScript", "Node.js test runner"],
+  "external_paid_apis": [],
+  "pricing": {
+    "model": "one-time purchase",
+    "price_krw": 29000
+  },
+  "test_status": "6/6 PASS",
+  "security_scan": "PASS - no credential patterns or .env file",
+  "report_status": "PASS - 6-page A4 PDF rendered and inspected",
+  "validation": {
+    "dependency_install": "PASS",
+    "application_start": "PASS - HTTP 200",
+    "core_feature": "PASS - browser DOM assertions",
+    "readme_command": "PASS",
+    "screenshot": "PASS - Chromium capture inspected",
+    "completed_at": "2026-08-02T00:20:15+09:00"
+  },
+  "score": 8.1
+}
