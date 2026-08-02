@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="description" content="여행 짐 체크리스트와 수하물 중량 계산기" />
+    <title>PackWise - 가볍고 빠른 여행 준비</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="shell">
+      <header>
+        <a class="brand" href="#">PACK<span>WISE</span></a>
+        <p>LOCAL PACKING DESK / 01</p>
+      </header>
+
+      <main>
+        <section class="intro">
+          <div>
+            <p class="eyebrow">PACK LIGHT · MISS NOTHING</p>
+            <h1>짐은 가볍게,<br /><em>준비는 빈틈없이.</em></h1>
+          </div>
+          <p class="intro-copy">체크리스트와 수하물 중량을 한 화면에서 관리하세요. 모든 데이터는 이 브라우저에만 저장됩니다.</p>
+        </section>
+
+        <section class="workspace">
+          <aside class="sidebar">
+            <div class="trip-card">
+              <label>여행 이름<input id="trip-name" maxlength="80" /></label>
+              <label>수하물 허용 중량<div class="input-unit"><input id="allowance" type="number" min="0.1" max="100" step="0.1" /><span>kg</span></div></label>
+            </div>
+
+            <div id="weight-card" class="summary-card" data-state="safe">
+              <div class="summary-head"><span>예상 수하물</span><b id="total-weight">-</b></div>
+              <div class="bar"><i id="weight-bar"></i></div>
+              <div class="summary-foot"><span id="weight-label">-</span><strong id="remaining-weight">-</strong></div>
+            </div>
+
+            <div class="progress-card">
+              <div><span>포장 진행률</span><b id="progress-percent">-</b></div>
+              <div class="bar pale"><i id="progress-bar"></i></div>
+              <p><strong id="packed-count">-</strong> 개 항목 준비됨</p>
+            </div>
+
+            <form id="item-form" class="add-card" novalidate>
+              <div class="section-label"><span>+ 새 항목</span><small>ADD ITEM</small></div>
+              <label>항목 이름<input name="name" maxlength="60" placeholder="예: 선글라스" required /></label>
+              <div class="field-row">
+                <label>분류<select name="category"><option value="clothes">의류</option><option value="toiletries">세면</option><option value="electronics">전자기기</option><option value="documents">서류</option><option value="accessories">소품</option><option value="other">기타</option></select></label>
+                <label>수량<input name="quantity" type="number" min="1" max="99" value="1" required /></label>
+              </div>
+              <label>개당 무게<div class="input-unit"><input name="unitGrams" type="number" min="0" max="50000" placeholder="0" required /><span>g</span></div></label>
+              <button class="primary" type="submit">목록에 추가</button>
+              <p id="form-status" aria-live="polite"></p>
+            </form>
+          </aside>
+
+          <section class="list-panel">
+            <div class="list-head">
+              <div><p class="eyebrow">YOUR CHECKLIST</p><h2>챙길 물건</h2></div>
+              <div class="actions"><button id="export-plan">JSON 백업</button><button id="reset-plan">새로 만들기</button></div>
+            </div>
+            <div id="packing-list" class="packing-list"></div>
+          </section>
+        </section>
+      </main>
+
+      <footer><span>PACKWISE MVP</span><span>실제 항공사 규정은 출발 전 별도로 확인하세요.</span></footer>
+    </div>
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>
