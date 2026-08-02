@@ -1,0 +1,25 @@
+{
+  "name": "2026-08-02-1602-claimclock",
+  "product_name": "ClaimClock",
+  "status": "PASS",
+  "created_at": "2026-08-02T16:02:18+09:00",
+  "category": "business-returns-operations",
+  "target_customer": "Small Korean online merchants handling five or more return, exchange, or refund requests per day",
+  "problem": "Support requests are scattered across messages and spreadsheets, causing missed deadlines and unclear financial exposure.",
+  "core_features": ["Validated claim intake", "Deadline risk dashboard", "Status and exposure tracking"],
+  "stack": ["Python standard library", "SQLite", "Server-rendered HTML/CSS"],
+  "external_paid_apis": [],
+  "pricing": {"model": "monthly subscription", "price_krw": 19000},
+  "test_status": "8/8 PASS",
+  "security_scan": "PASS - no credential patterns or .env files found",
+  "report_status": "PASS - 6-page A4 PDF parsed, rendered, and visually inspected",
+  "validation": {
+    "dependency_install": "PASS - fresh venv and requirements install completed",
+    "application_start": "PASS - /health returned HTTP 200",
+    "core_function": "PASS - authenticated browser workflow created 4 cases and verified active=4, urgent=2, exposure=KRW 271800",
+    "readme_commands": "PASS - documented install, test, and start flow verified",
+    "screenshot": "PASS - 1440x1310 Chromium capture visually inspected",
+    "completed_at": "2026-08-02T16:18:00+09:00"
+  },
+  "overall_score": 7.8
+}
