@@ -1,0 +1,17 @@
+[2026-08-02 16:02 KST] BUILD STARTED
+[2026-08-02 16:03 KST] Existing results checked: MarginMap and PackWise; no returns workflow duplicate
+[2026-08-02 16:04 KST] Idea selected: ClaimClock for small online merchants
+[2026-08-02 16:07 KST] PASS Automated tests: 8 passed, 0 failed
+[2026-08-02 16:08 KST] FIX ATTEMPT 1: initial cross-session HTTP probe could not reach the isolated validation server
+[2026-08-02 16:08 KST] FIX APPLIED: server and probes were run in one controlled process; health returned HTTP 200
+[2026-08-02 16:09 KST] PASS Core workflow: login, 4 creates, active=4, urgent=2, exposure=KRW 271800
+[2026-08-02 16:11 KST] FIX ATTEMPT 2: first Chromium capture showed missing Korean glyphs
+[2026-08-02 16:13 KST] FIX APPLIED: OFL Korean font subsets bundled locally; TTF used when WOFF2 encoder was unavailable
+[2026-08-02 16:14 KST] PASS Screenshot: 1440x1310 dashboard capture visually inspected
+[2026-08-02 16:15 KST] FIX ATTEMPT 3: initial PDF image exceeded the available report frame
+[2026-08-02 16:16 KST] FIX APPLIED: explicit aspect-safe image dimensions; PDF generated successfully
+[2026-08-02 16:17 KST] PASS PDF: 6-page A4, text sections checked, all pages rendered and visually inspected
+[2026-08-02 16:17 KST] PASS Dependency and README verification: fresh venv, requirements install, test and start flow
+[2026-08-02 16:18 KST] PASS Secret scan: no credential patterns or .env files found
+[2026-08-02 16:18 KST] PASS Final automated tests: 8 passed, 0 failed
+[2026-08-02 16:18 KST] BUILD COMPLETED: PASS; overall score 7.8/10
