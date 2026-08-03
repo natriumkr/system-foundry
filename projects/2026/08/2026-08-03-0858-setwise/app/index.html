@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="연주자를 위한 우선순위 기반 개인 연습 큐">
+  <title>SetWise — Practice with intent</title>
+  <link rel="stylesheet" href="fonts.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <a class="brand" href="#"><span>SW</span><div><b>SetWise</b><small>PRACTICE WITH INTENT</small></div></a>
+    <div class="header-actions"><div class="today"><small>오늘</small><b id="today">2026.08.03</b></div><button id="reset" class="ghost">샘플 복원</button></div>
+  </header>
+  <main class="shell">
+    <p id="notice" class="notice" aria-live="polite"></p>
+    <section class="hero">
+      <div><p class="eyebrow">YOUR DAILY REHEARSAL MAP</p><h1>연습할 곡은 많고,<br><em>시간은 짧으니까.</em></h1><p>공연 일정, 자신감, 마지막 연습일을 계산해 오늘 먼저 연습할 구간을 정리합니다.</p></div>
+      <div class="time-control"><div><span>오늘 가능한 시간</span><b id="minutes-label">35분</b></div><input id="minutes" type="range" min="10" max="120" step="5" value="35" aria-label="오늘 가능한 연습 시간"></div>
+    </section>
+    <section class="stats">
+      <article><span>레퍼토리</span><b id="repertoire-count">4</b><small>ACTIVE PIECES</small></article>
+      <article class="violet"><span>14일 내 공연</span><b id="due-count">2</b><small>UPCOMING</small></article>
+      <article class="mint"><span>최근 7일 연습</span><b id="week-minutes">32분</b><small>WEEKLY TOTAL</small></article>
+    </section>
+    <section class="workspace">
+      <div class="main-column">
+        <section class="panel queue-panel"><div class="panel-head"><div><p class="eyebrow">TODAY'S QUEUE</p><h2>우선순위 연습 큐</h2></div><span id="plan-total">35분 계획</span></div><div id="queue"></div></section>
+        <section class="panel history-panel"><div class="panel-head"><div><p class="eyebrow">RECENT SESSIONS</p><h2>최근 연습 기록</h2></div></div><ul id="history"></ul></section>
+      </div>
+      <aside class="panel add-panel"><p class="eyebrow">ADD REPERTOIRE</p><h2>연습할 곡 추가</h2><p class="aside-copy">곡 전체보다 오늘 개선할 구간을 구체적으로 적어보세요.</p>
+        <form id="piece-form" novalidate>
+          <label>곡명<input name="title" maxlength="60" placeholder="예: Autumn Etude" required></label>
+          <label>집중 구간<input name="section" maxlength="60" placeholder="예: 24-32마디 왼손" required></label>
+          <div class="split"><label>현재 자신감<select name="confidence"><option value="1">1 · 막막함</option><option value="2">2 · 불안정</option><option value="3" selected>3 · 보통</option><option value="4">4 · 안정적</option><option value="5">5 · 완성</option></select></label><label>권장 시간<input name="minutes" type="number" min="5" max="120" value="15" required></label></div>
+          <label>공연·레슨일 <small>선택</small><input name="performanceDate" type="date"></label>
+          <button type="submit">레퍼토리에 추가</button><p id="form-message" class="form-message" aria-live="polite"></p>
+        </form>
+      </aside>
+    </section>
+  </main>
+  <!-- Font glyph inventory: 입력하세요 날짜를 확인하세요 자신감은 사이여야 합니다 연습 시간 실제 곡을 찾을 수 없습니다 레퍼토리에 추가했습니다 연습 기록을 저장했습니다 샘플 데이터를 복원했습니다 지금 먼저 오늘 권장 여유 있음 공연일 없음 완료 후 계획 막막함 불안정 보통 안정적 완성 마디 연결 브리지 리듬 후렴 전환 아르페지오 -->
+  <script src="planner.js"></script><script src="app.js"></script>
+</body>
+</html>

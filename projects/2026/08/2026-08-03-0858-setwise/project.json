@@ -1,0 +1,25 @@
+{
+  "name": "2026-08-03-0858-setwise",
+  "product_name": "SetWise",
+  "status": "PASS",
+  "created_at": "2026-08-03T08:58:33+09:00",
+  "category": "personal-music-practice",
+  "target_customer": "Music students, band members, and hobby performers preparing several pieces at once",
+  "problem": "Musicians spend limited practice time on familiar material while weak or deadline-sensitive sections are overlooked.",
+  "core_features": ["Validated repertoire intake", "Priority-based daily queue", "Practice completion history"],
+  "stack": ["Static HTML", "CSS", "JavaScript", "Node.js test runner"],
+  "external_paid_apis": [],
+  "pricing": {"model": "one-time purchase", "price_krw": 12000},
+  "test_status": "8/8 PASS",
+  "security_scan": "PASS - no credential patterns or .env files found",
+  "report_status": "PASS - 6-page A4 PDF parsed, rendered, and visually inspected",
+  "validation": {
+    "dependency_install": "PASS - npm install completed with zero runtime dependencies",
+    "application_start": "PASS - README npm start command returned HTTP 200",
+    "core_function": "PASS - browser verified stats 4/2/32, 33-minute queue, ranked titles, and completion update to 47 minutes",
+    "readme_commands": "PASS - install, test, and start commands verified",
+    "screenshot": "PASS - 1440x1537 Chromium capture visually inspected",
+    "completed_at": "2026-08-03T09:07:59+09:00"
+  },
+  "overall_score": 8.0
+}

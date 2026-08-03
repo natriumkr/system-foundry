@@ -1,0 +1,17 @@
+[2026-08-03 08:58 KST] BUILD STARTED
+[2026-08-03 09:00 KST] Existing results checked: MarginMap, PackWise, ClaimClock; no rehearsal-planning duplicate
+[2026-08-03 09:01 KST] Idea selected: SetWise personal rehearsal queue
+[2026-08-03 09:02 KST] PASS Dependency verification: npm install completed; zero runtime dependencies
+[2026-08-03 09:02 KST] PASS Automated tests: 8 passed, 0 failed
+[2026-08-03 09:03 KST] FIX ATTEMPT 1: temporary full Korean font source was not present in the new run
+[2026-08-03 09:03 KST] FIX APPLIED: installed an OFL-licensed temporary source and generated local subsets
+[2026-08-03 09:04 KST] PASS Application startup: local HTTP server returned 200
+[2026-08-03 09:04 KST] PASS Core UI: stats 4/2/32, 33-minute queue, ranked titles, completion total 47
+[2026-08-03 09:04 KST] FIX ATTEMPT 2: first screenshot omitted glyphs used only by dynamic sample sections
+[2026-08-03 09:05 KST] FIX APPLIED: expanded the glyph inventory, rebuilt font subsets, and recaptured the screen
+[2026-08-03 09:05 KST] PASS Screenshot: 1440x1537 dashboard capture visually inspected
+[2026-08-03 09:06 KST] PASS PDF: 6-page A4, 14 required sections parsed, all pages rendered and visually inspected
+[2026-08-03 09:07 KST] PASS README verification: npm install, npm test, and npm start executed successfully
+[2026-08-03 09:07 KST] PASS Secret scan: no credential patterns or .env files found
+[2026-08-03 09:07 KST] PASS Final automated tests: 8 passed, 0 failed
+[2026-08-03 09:07 KST] BUILD COMPLETED: PASS; overall score 8.0/10
