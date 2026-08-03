@@ -1,0 +1,13 @@
+[2026-08-03 16:04 KST] BUILD STARTED
+[2026-08-03 16:05 KST] Existing results checked: MarginMap, PackWise, ClaimClock, SetWise; no revision-scope tracker duplicate
+[2026-08-03 16:06 KST] Idea selected: ScopeSeal for small creative studios
+[2026-08-03 16:08 KST] Dependency install PASS: npm install completed, zero runtime dependencies
+[2026-08-03 16:08 KST] Automated tests PASS: 8 passed, 0 failed
+[2026-08-03 16:10 KST] Fix attempt 1: initial local font source was unavailable; installed an OFL Noto Sans KR source in temporary tooling and generated project subsets
+[2026-08-03 16:14 KST] Fix attempt 2: browser input click appended to the numeric default; changed the test driver to assign the exact 1.5-hour value
+[2026-08-03 16:15 KST] Core browser workflow PASS: total KRW 480000 -> 570000; auto-charge KRW 90000; approval queue 3 -> 2
+[2026-08-03 16:15 KST] Screenshot PASS: screenshots/dashboard.png captured in headless Chromium and visually inspected
+[2026-08-03 16:16 KST] PDF PASS: report.pdf generated as 6 A4 pages, parsed, rendered, and all pages visually inspected
+[2026-08-03 16:17 KST] README commands PASS: install, test, and start executed; HTTP status 200
+[2026-08-03 16:17 KST] Secret scan PASS: no credential patterns and no .env file
+[2026-08-03 16:17 KST] BUILD PASS

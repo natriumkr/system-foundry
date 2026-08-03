@@ -1,0 +1,25 @@
+{
+  "name": "2026-08-03-1604-scopeseal",
+  "product_name": "ScopeSeal",
+  "status": "PASS",
+  "created_at": "2026-08-03T16:04:14+09:00",
+  "category": "business-scope-management",
+  "target_customer": "Two-to-ten-person design, video, and web studios managing client revisions through chat",
+  "problem": "Revision requests arrive informally, making included rounds, scope creep, approval status, and billable extras difficult to prove and track.",
+  "core_features": ["Validated contract and request intake", "Allowance and billable calculation", "Approval status tracking"],
+  "stack": ["Static HTML", "CSS", "JavaScript", "Node.js test runner"],
+  "external_paid_apis": [],
+  "pricing": {"model": "monthly subscription", "price_krw": 24000},
+  "test_status": "8/8 PASS",
+  "security_scan": "PASS — no credential patterns or .env file",
+  "report_status": "PASS — 6-page PDF parsed, rendered, and visually inspected",
+  "overall_score": 8.3,
+  "validation": {
+    "dependency_install": "PASS",
+    "application_start": "PASS — HTTP 200",
+    "core_workflow": "PASS — total 480000 to 570000; approval queue 3 to 2",
+    "readme_commands": "PASS",
+    "screenshot": "PASS — headless Chromium capture inspected",
+    "completed_at": "2026-08-03T16:17:24+09:00"
+  }
+}
