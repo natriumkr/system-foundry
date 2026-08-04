@@ -1,0 +1,25 @@
+{
+  "name": "2026-08-04-0858-fridgefirst",
+  "product_name": "FridgeFirst",
+  "status": "PASS",
+  "created_at": "2026-08-04T08:58:37+09:00",
+  "category": "personal-food-waste-management",
+  "target_customer": "One-to-two-person households and solo residents who frequently forget food in the fridge",
+  "problem": "People lose track of expiry order and the purchase value of forgotten food, causing avoidable household waste.",
+  "core_features": ["Validated food inventory", "Use-first queue and value-at-risk calculation", "Consumed and wasted value history"],
+  "stack": ["Static HTML", "CSS", "JavaScript", "Node.js test runner"],
+  "external_paid_apis": [],
+  "pricing": {"model": "one-time license", "price_krw": 8900},
+  "test_status": "8/8 PASS",
+  "security_scan": "PASS — no credential patterns or .env file",
+  "report_status": "PASS — 6-page PDF parsed, rendered, and visually inspected",
+  "overall_score": 8.2,
+  "validation": {
+    "dependency_install": "PASS",
+    "application_start": "PASS — HTTP 200",
+    "core_workflow": "PASS — risk 13800 to 21700; saved value to 7900",
+    "readme_commands": "PASS",
+    "screenshot": "PASS — headless Chromium capture inspected",
+    "completed_at": "2026-08-04T09:11:08+09:00"
+  }
+}
