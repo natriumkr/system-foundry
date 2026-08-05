@@ -1,0 +1,10 @@
+const test=require("node:test"),assert=require("node:assert/strict"),G=require("../app/ledger.js");
+const base={id:"g1",asset:"Camera A",category:"카메라",borrowerAlias:"팀 북",assetValue:2400000,dueOn:"2026-08-04",status:"out",condition:"good"};
+test("normalizes loan text and value",()=>assert.equal(G.normalizeLoan({...base,asset:"  Camera   A "}).asset,"Camera A"));
+test("rejects invalid asset value",()=>assert.throws(()=>G.normalizeLoan({...base,assetValue:9999}),G.ValidationError));
+test("rejects unknown status and condition",()=>{assert.throws(()=>G.normalizeLoan({...base,status:"missing"}),G.ValidationError);assert.throws(()=>G.normalizeLoan({...base,condition:"lost"}),G.ValidationError);});
+test("orders overdue, today, soon, maintenance, returned",()=>{const items=[{...base,id:"ret",status:"returned"},{...base,id:"today",dueOn:"2026-08-05"},{...base,id:"fix",status:"maintenance"},base];assert.deepEqual(G.buildDashboard(items,"2026-08-05").items.map(x=>x.id),["g1","today","fix","ret"]);});
+test("calculates checked-out count and value",()=>{const s=G.buildDashboard([base,{...base,id:"g2",assetValue:650000,dueOn:"2026-08-05"}],"2026-08-05").summary;assert.equal(s.outCount,2);assert.equal(s.outValue,3050000);assert.equal(s.overdue,1);});
+test("separates maintenance and returned value",()=>{const s=G.buildDashboard([{...base,status:"maintenance",assetValue:780000},{...base,id:"ret",status:"returned",assetValue:1300000}],"2026-08-05").summary;assert.equal(s.maintenanceValue,780000);assert.equal(s.returnedValue,1300000);});
+test("closed items do not count as out",()=>assert.equal(G.buildDashboard([{...base,status:"returned"}],"2026-08-05").summary.outCount,0));
+test("updates status and condition and rejects unknown id",()=>{const x=G.updateLoan([base],"g1","returned","check")[0];assert.equal(x.status,"returned");assert.equal(x.condition,"check");assert.throws(()=>G.updateLoan([base],"none","returned","good"),G.ValidationError);});

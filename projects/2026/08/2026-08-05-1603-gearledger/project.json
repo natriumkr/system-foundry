@@ -1,0 +1,16 @@
+{
+  "name":"2026-08-05-1603-gearledger",
+  "product_name":"GearLedger",
+  "status":"PASS",
+  "created_at":"2026-08-05T16:03:29+09:00",
+  "category":"business-equipment-checkout",
+  "target_customer":"Small photo, video, music, and maker studios that share valuable equipment",
+  "problem":"Shared equipment becomes overdue or unavailable when checkout dates, condition, and value are tracked in messages or memory.",
+  "core_features":["Validated equipment checkout","Return urgency queue","Asset value and condition tracking"],
+  "stack":["Static HTML","CSS","JavaScript","Node.js test runner"],
+  "external_paid_apis":[],
+  "pricing":{"model":"monthly subscription","price_krw":22000},
+  "test_status":"PASS: 8/8","security_scan":"PASS","report_status":"PASS: 6 pages rendered and inspected",
+  "validation":{"dependency_install":"PASS","application_start":"PASS: HTTP 200","core_workflow":"PASS: browser verified","readme_commands":"PASS","screenshot":"PASS"},
+  "overall_score":8.3
+}
