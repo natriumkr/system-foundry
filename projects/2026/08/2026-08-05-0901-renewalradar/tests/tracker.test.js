@@ -1,0 +1,10 @@
+const test=require("node:test"),assert=require("node:assert/strict"),R=require("../app/tracker.js");
+const base={id:"s1",name:"Music Cloud",category:"음악",amount:10900,billing:"monthly",status:"active",renewsOn:"2026-08-05"};
+test("normalizes subscription fields",()=>assert.deepEqual(R.normalizeSubscription({...base,name:"  Music   Cloud "}).name,"Music Cloud"));
+test("rejects invalid amount limits",()=>assert.throws(()=>R.normalizeSubscription({...base,amount:999}),R.ValidationError));
+test("rejects unknown billing and status",()=>{assert.throws(()=>R.normalizeSubscription({...base,billing:"weekly"}),R.ValidationError);assert.throws(()=>R.normalizeSubscription({...base,status:"hidden"}),R.ValidationError);});
+test("calculates annual cost by billing cycle",()=>{assert.equal(R.annualCost(base),130800);assert.equal(R.annualCost({...base,billing:"yearly",amount:18000}),18000);});
+test("orders urgent renewals before inactive items",()=>{const out=R.buildDashboard([{...base,id:"later",renewsOn:"2026-08-30"},{...base,id:"today"},{...base,id:"off",status:"canceled"}],"2026-08-05");assert.deepEqual(out.items.map(x=>x.id),["today","later","off"]);});
+test("calculates active monthly and annual totals",()=>{const out=R.buildDashboard([base,{...base,id:"annual",amount:18000,billing:"yearly",renewsOn:"2026-08-12"}],"2026-08-05");assert.deepEqual(out.summary,{active:2,dueIn7:2,monthlyEquivalent:12400,annualCost:148800,canceledSavings:0});});
+test("tracks canceled annual savings",()=>{const out=R.buildDashboard([{...base,status:"canceled",amount:8900}],"2026-08-05");assert.equal(out.summary.canceledSavings,106800);assert.equal(out.summary.active,0);});
+test("updates a known status and rejects unknown ids",()=>{assert.equal(R.updateStatus([base],"s1","canceled")[0].status,"canceled");assert.throws(()=>R.updateStatus([base],"missing","paused"),R.ValidationError);});
