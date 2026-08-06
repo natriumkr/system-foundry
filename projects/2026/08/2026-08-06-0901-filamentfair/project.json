@@ -1,0 +1,24 @@
+{
+  "name":"2026-08-06-0901-filamentfair",
+  "product_name":"FilamentFair",
+  "status":"PASS",
+  "created_at":"2026-08-06T09:01:04+09:00",
+  "category":"personal-3d-print-costing",
+  "target_customer":"Hobbyist 3D printer owners who make parts for friends or small paid requests",
+  "problem":"Charging only for filament ignores electricity, machine time, failed prints, and margin, causing makers to lose money.",
+  "core_features":["Validated print job intake","True-cost breakdown","Margin-based price and job ledger"],
+  "stack":["Static HTML","CSS","JavaScript","Node.js test runner"],
+  "external_paid_apis":[],
+  "pricing":{"model":"one-time license","price_krw":12900},
+  "test_status":"PASS: 8/8",
+  "security_scan":"PASS",
+  "report_status":"PASS: 6 pages generated, parsed, rendered, and visually inspected",
+  "validation":{
+    "dependency_install":"PASS",
+    "application_start":"PASS: HTTP 200",
+    "core_browser_flow":"PASS",
+    "readme_commands":"PASS",
+    "screenshot":"PASS: 1440x1440"
+  },
+  "overall_score":8.3
+}
