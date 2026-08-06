@@ -1,0 +1,15 @@
+[2026-08-06 16:02 KST] BUILD STARTED
+[2026-08-06 16:03 KST] Existing projects, branches, and PRs checked: MarginMap through FilamentFair
+[2026-08-06 16:04 KST] Idea selected: PickupDesk repair pickup operations ledger
+[2026-08-06 16:06 KST] PASS Dependency verification: npm install completed; zero runtime dependencies
+[2026-08-06 16:06 KST] Automated test attempt 1 failed: syntax error in urgency sort expression
+[2026-08-06 16:07 KST] Fix 1/3 applied: extracted urgency priority map
+[2026-08-06 16:07 KST] PASS Automated tests: 8/8
+[2026-08-06 16:08 KST] Browser attempt 1 failed: stale Chromium runtime could not launch
+[2026-08-06 16:09 KST] Browser attempt 2 failed: verification runtime ownership handling; isolated writable runtime configured
+[2026-08-06 16:10 KST] PASS Core browser flow: initial 3 / 1 / ₩295,500; added job 4 / 1 / ₩345,500; picked up 3 / 0 / ₩242,500
+[2026-08-06 16:10 KST] PASS Screenshot: actual Chromium view captured at 1440x1400; full Korean font render visually inspected
+[2026-08-06 16:11 KST] PASS PDF report: 6 pages generated, parsed, rendered, and visually inspected
+[2026-08-06 16:12 KST] PASS Application startup and README commands: HTTP 200 at http://127.0.0.1:8080/
+[2026-08-06 16:12 KST] PASS Secret scan: no credential patterns found; .env absent
+[2026-08-06 16:12 KST] BUILD COMPLETED: PASS

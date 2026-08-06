@@ -1,0 +1,10 @@
+const test=require('node:test');const assert=require('node:assert/strict');const E=require('../app/engine.js');
+const base={id:'a',ticket:'R-101',customer:'민수',item:'노트북',readyDate:'2026-08-01',promisedDate:'2026-08-04',balance:80000,dailyFee:2000,status:'ready'};
+test('normalizes valid intake',()=>assert.equal(E.normalize(base).balance,80000));
+test('rejects blank aliases',()=>assert.throws(()=>E.normalize({...base,customer:' '})));
+test('rejects invalid financial ranges',()=>assert.throws(()=>E.normalize({...base,balance:-1})));
+test('rejects promise before ready date',()=>assert.throws(()=>E.normalize({...base,promisedDate:'2026-07-31'})));
+test('calculates waiting, storage and due',()=>{const x=E.enrich(base,'2026-08-06');assert.deepEqual([x.waiting,x.storage,x.totalDue],[5,4000,84000])});
+test('classifies overdue and soon items',()=>{assert.equal(E.enrich(base,'2026-08-06').risk,'overdue');assert.equal(E.enrich({...base,promisedDate:'2026-08-08'},'2026-08-06').risk,'soon')});
+test('dashboard excludes picked up jobs and sorts urgency',()=>{const d=E.dashboard([base,{...base,id:'b',status:'picked_up'}],'2026-08-06');assert.deepEqual([d.readyCount,d.overdueCount,d.outstanding],[1,1,84000])});
+test('updates a known status and rejects unknown ids',()=>{assert.equal(E.updateStatus([base],'a','picked_up')[0].status,'picked_up');assert.throws(()=>E.updateStatus([base],'x','picked_up'))});
