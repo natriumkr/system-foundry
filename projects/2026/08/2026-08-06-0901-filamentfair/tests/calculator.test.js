@@ -1,0 +1,10 @@
+const test=require("node:test"),assert=require("node:assert/strict"),F=require("../app/calculator.js");
+const base={id:"p1",name:"Mini Tower",material:"PLA",grams:180,hours:8.5,spoolPrice:24000,watts:120,kwhRate:200,machineHourly:500,failureRate:15,margin:35,status:"planned"};
+test("normalizes job text and numeric inputs",()=>assert.equal(F.normalizeJob({...base,name:"  Mini   Tower "}).name,"Mini Tower"));
+test("rejects invalid grams and hours",()=>{assert.throws(()=>F.normalizeJob({...base,grams:0}),F.ValidationError);assert.throws(()=>F.normalizeJob({...base,hours:1001}),F.ValidationError);});
+test("rejects excessive margin and unknown status",()=>{assert.throws(()=>F.normalizeJob({...base,margin:81}),F.ValidationError);assert.throws(()=>F.normalizeJob({...base,status:"sold"}),F.ValidationError);});
+test("calculates material energy and machine costs",()=>{const x=F.estimate(base);assert.equal(x.materialCost,4320);assert.equal(x.energyCost,204);assert.equal(x.machineCost,4250);});
+test("adds failure reserve and rounds selling price",()=>{const x=F.estimate(base);assert.equal(Math.round(x.totalCost),10090);assert.equal(x.price,15600);});
+test("totals only planned work in active metrics",()=>{const s=F.buildDashboard([base,{...base,id:"done",status:"printed",price:0}]).summary;assert.equal(s.planned,1);assert.equal(s.plannedGrams,180);assert.equal(s.plannedPrice,15600);});
+test("tracks completed estimated revenue",()=>{const s=F.buildDashboard([{...base,status:"printed"}]).summary;assert.equal(s.printedRevenue,15600);assert.equal(s.planned,0);});
+test("updates known status and rejects unknown id",()=>{assert.equal(F.updateStatus([base],"p1","printed")[0].status,"printed");assert.throws(()=>F.updateStatus([base],"none","printed"),F.ValidationError);});
