@@ -1,0 +1,13 @@
+[2026-08-07 09:04 KST] BUILD STARTED
+[2026-08-07 09:05 KST] Existing projects, branches, and PRs checked: MarginMap through PickupDesk
+[2026-08-07 09:06 KST] Idea selected: SplitSnap local-first group expense settlement tool
+[2026-08-07 09:07 KST] PASS Dependency verification: npm install completed; zero runtime dependencies
+[2026-08-07 09:07 KST] PASS Automated tests: 8/8
+[2026-08-07 09:08 KST] Browser attempt 1 failed: previous temporary Chromium package had been cleaned
+[2026-08-07 09:09 KST] PASS Core browser flow: initial ₩364,000 / 3 expenses / 3 transfers; added expense ₩396,000 / 4 expenses / 3 transfers
+[2026-08-07 09:09 KST] Screenshot font inspection found missing sample glyphs; full font restored and subset corpus expanded
+[2026-08-07 09:10 KST] PASS Screenshot: actual Chromium view captured at 1440x1500; final subset font render visually inspected
+[2026-08-07 09:10 KST] PASS PDF report: 6 pages generated, parsed, rendered, and visually inspected
+[2026-08-07 09:11 KST] PASS Application startup and README commands: HTTP 200 at http://127.0.0.1:8080/
+[2026-08-07 09:11 KST] PASS Secret scan: no credential patterns found; .env absent
+[2026-08-07 09:11 KST] BUILD COMPLETED: PASS
