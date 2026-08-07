@@ -1,0 +1,17 @@
+[2026-08-07 15:58 KST] Project selected: SlotSignal (business appointment waitlist recovery)
+[2026-08-07 16:01 KST] npm install: PASS (zero runtime dependencies)
+[2026-08-07 16:01 KST] npm test: PASS (8/8)
+[2026-08-07 16:02 KST] HTTP start and title check: PASS (200, SlotSignal)
+[2026-08-07 16:03 KST] Browser capture attempt 1: FAILED - previous temporary Chromium dependency had been cleaned
+[2026-08-07 16:04 KST] Browser verification dependency install attempt 1: FAILED - npm cache path unavailable
+[2026-08-07 16:05 KST] Browser verification dependency install attempt 2: PASS using explicit writable cache
+[2026-08-07 16:06 KST] Browser launch attempt 2: FAILED - package export/API mismatch; capture script corrected
+[2026-08-07 16:07 KST] Browser launch attempt 3: FAILED - stale temporary Chromium extraction; isolated and re-extracted
+[2026-08-07 16:08 KST] Chromium core flow: PASS (waitlist 4→5, slots 3→4, open revenue ₩182,000→₩237,000)
+[2026-08-07 16:08 KST] Screenshot 1440x1500: PASS
+[2026-08-07 16:08 KST] Visual review attempt 1: FAILED - reused subset font omitted current Korean glyphs
+[2026-08-07 16:09 KST] Restored full Noto Sans KR and subset to current app/report text
+[2026-08-07 16:09 KST] Screenshot visual review: PASS - no clipping, overlap, or missing glyphs
+[2026-08-07 16:09 KST] PDF: PASS (6 A4 pages, required sections parsed, rendered, visually inspected)
+[2026-08-07 16:10 KST] README commands and secret scan: PASS
+[2026-08-07 16:10 KST] Final status: PASS

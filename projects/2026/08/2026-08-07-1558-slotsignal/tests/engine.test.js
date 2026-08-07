@@ -1,0 +1,10 @@
+const test=require('node:test');const assert=require('node:assert/strict');const E=require('../app/engine.js');
+const today='2026-08-07';
+test('valid customer is normalized and markup is removed',()=>{const c=E.normalizeCustomer({name:' 홍<길>동 ',service:'컷',availability:'afternoon',joined:today});assert.equal(c.name,'홍길동');assert.equal(c.status,'waiting')});
+test('short customer name is rejected',()=>assert.throws(()=>E.normalizeCustomer({name:'김',service:'컷',availability:'afternoon',joined:today}),/2자/));
+test('unsupported service is rejected',()=>assert.throws(()=>E.normalizeCustomer({name:'홍길동',service:'펌',availability:'afternoon',joined:today}),/지원 서비스/));
+test('slot validates price and time',()=>{assert.equal(E.normalizeSlot({service:'컬러',date:'2026-08-08',time:'18:30',price:'89000'}).price,89000);assert.throws(()=>E.normalizeSlot({service:'컬러',date:'2026-08-08',time:'88:00',price:1}),/날짜와 시간/)});
+test('period is derived from start time',()=>{assert.equal(E.periodFor('09:30'),'morning');assert.equal(E.periodFor('15:00'),'afternoon');assert.equal(E.periodFor('19:00'),'evening')});
+test('exact service and period score above 90',()=>{const c={id:'c',name:'고객',service:'컷',availability:'afternoon',joined:'2026-07-28',status:'waiting'},s={id:'s',service:'컷',date:'2026-08-08',time:'15:30',price:30000,status:'open'};assert.ok(E.score(c,s,today)>=90)});
+test('queue excludes service mismatches and sorts by score',()=>{const cs=[{id:'a',name:'가고객',service:'컷',availability:'afternoon',joined:'2026-07-28',status:'waiting'},{id:'b',name:'나고객',service:'컬러',availability:'afternoon',joined:'2026-07-28',status:'waiting'}],ss=[{id:'s',service:'컷',date:'2026-08-08',time:'15:30',price:30000,status:'open'}];const q=E.matchQueue(cs,ss,today);assert.equal(q.length,1);assert.equal(q[0].id,'a')});
+test('filling slot updates both records',()=>{const c=[{id:'c',status:'waiting'}],s=[{id:'s',status:'open'}],r=E.fillSlot(c,s,'s','c');assert.equal(r.customers[0].status,'booked');assert.equal(r.slots[0].status,'filled')});
