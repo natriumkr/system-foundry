@@ -1,0 +1,14 @@
+[2026-08-08 09:00 KST] Project selected: ProofPocket (personal warranty proof management)
+[2026-08-08 09:02 KST] npm install: PASS (zero runtime dependencies)
+[2026-08-08 09:02 KST] npm test: PASS (8/8)
+[2026-08-08 09:03 KST] HTTP start and title check: PASS (200, ProofPocket)
+[2026-08-08 09:03 KST] Browser attempt 1: FAILED - verification-only Chromium package was cleaned between runs
+[2026-08-08 09:04 KST] Browser retry with existing verified runtime: PASS
+[2026-08-08 09:04 KST] Chromium flow: PASS (products 4→5, protected value ₩2,087,000→₩2,406,000)
+[2026-08-08 09:04 KST] Screenshot 1440x1500: PASS
+[2026-08-08 09:04 KST] Visual review attempt 1: FAILED - reused subset font omitted current Korean glyphs
+[2026-08-08 09:05 KST] Font subset rebuilt from full Noto Sans KR for current app/report text
+[2026-08-08 09:05 KST] Screenshot review: PASS - no missing glyphs, clipping, or overlap
+[2026-08-08 09:05 KST] PDF: PASS (6 A4 pages, parsed, rendered, visually inspected)
+[2026-08-08 09:06 KST] README commands and secret scan: PASS
+[2026-08-08 09:06 KST] Final status: PASS
