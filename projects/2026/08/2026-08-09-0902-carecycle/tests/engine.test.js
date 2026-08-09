@@ -1,0 +1,10 @@
+const test=require('node:test'),assert=require('node:assert/strict'),E=require('../app/engine.js');
+const base={id:'x',name:'공기청정기 필터',location:'거실',category:'공기·필터',lastDone:'2026-08-01',intervalDays:30,cost:30000,status:'active'};
+test('날짜를 더한다',()=>assert.equal(E.addDays('2026-01-31',30),'2026-03-02'));
+test('입력을 정규화한다',()=>assert.equal(E.normalize({...base,name:' <필터 교체> '}).name,'필터 교체'));
+test('짧은 이름을 거부한다',()=>assert.throws(()=>E.normalize({...base,name:'필'})));
+test('주기 범위를 검증한다',()=>assert.throws(()=>E.normalize({...base,intervalDays:0})));
+test('지연 상태를 계산한다',()=>assert.equal(E.enrich({...base,lastDone:'2026-06-01'},'2026-08-09').risk,'overdue'));
+test('7일 이내는 긴급이다',()=>assert.equal(E.enrich({...base,lastDone:'2026-07-15'},'2026-08-09').risk,'urgent'));
+test('대시보드는 날짜순 정렬한다',()=>{const d=E.dashboard([base,{...base,id:'y',lastDone:'2026-07-01'}],'2026-08-09');assert.equal(d.rows[0].id,'y');assert.equal(d.total,2)});
+test('완료하면 기준일로 갱신한다',()=>assert.equal(E.complete([base],'x','2026-08-09')[0].lastDone,'2026-08-09'));
