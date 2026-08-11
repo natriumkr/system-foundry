@@ -1,0 +1,1 @@
+{"name":"shiftseal","version":"1.0.0","private":true,"scripts":{"test":"node --test tests/*.test.js","start":"python3 -m http.server 4173 -d app"},"engines":{"node":">=18"}}
