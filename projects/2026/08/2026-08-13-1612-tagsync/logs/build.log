@@ -1,0 +1,13 @@
+[2026-08-13 16:12 KST] Project initialized: TagSync.
+[2026-08-13 16:13 KST] Existing projects reviewed; no duplicate shelf-label and POS price mismatch tracker found.
+[2026-08-13 16:15 KST] Static MVP implemented with localStorage, input validation, and output escaping.
+[2026-08-13 16:17 KST] Validation attempt 1: 7/8 tests passed; duplicate SKU comparison did not normalize existing lowercase SKU. Root cause identified.
+[2026-08-13 16:18 KST] Fix applied: existing SKU and missing status are normalized before duplicate comparison.
+[2026-08-13 16:19 KST] Dependency install: PASS (npm install --ignore-scripts).
+[2026-08-13 16:19 KST] Automated tests: PASS (8/8).
+[2026-08-13 16:20 KST] Program start and README commands: PASS (HTTP 200 at 127.0.0.1:4173).
+[2026-08-13 16:20 KST] Chromium core flow: PASS (initial 4, added 5th price record, resolved count 2).
+[2026-08-13 16:20 KST] Screenshot captured and visually inspected: PASS.
+[2026-08-13 16:21 KST] Secret-pattern and stale-template scans: PASS.
+[2026-08-13 16:21 KST] PDF report: PASS (6 A4 pages, 14 required sections, text extraction and full-page render inspected).
+[2026-08-13 16:21 KST] Final project status: PASS.
