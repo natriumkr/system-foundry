@@ -1,0 +1,10 @@
+const test=require('node:test'),assert=require('node:assert/strict'),E=require('../app/engine.js');
+const base={id:'x',code:'kit-01',room:'주방',contents:'접시, 수저',fragile:'on'};
+test('코드를 정규화한다',()=>assert.equal(E.normalize(base).code,'KIT-01'));
+test('허용되지 않은 코드를 거부한다',()=>assert.throws(()=>E.normalize({...base,code:'상자 1'})));
+test('허용되지 않은 방을 거부한다',()=>assert.throws(()=>E.normalize({...base,room:'옥상'})));
+test('깨짐주의를 불리언으로 변환한다',()=>assert.equal(E.normalize(base).fragile,true));
+test('중복 상자 코드를 거부한다',()=>assert.throws(()=>E.add([{...E.normalize(base),id:'a'}],base)));
+test('내용물을 대소문자 없이 검색한다',()=>assert.equal(E.search([E.normalize(base)],'KIT').length,1));
+test('정리 진행률을 계산한다',()=>assert.equal(E.dashboard([{...E.normalize(base),status:'unpacked'},E.normalize({...base,code:'KIT-02'})]).progress,50));
+test('정리 상태를 토글한다',()=>{const item=E.normalize(base);assert.equal(E.toggle([item],item.id)[0].status,'unpacked')});
