@@ -1,0 +1,10 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MakeupLedger</title><link rel="stylesheet" href="styles.css"></head><body><main>
+<header><div><p class="eyebrow">EVERY MISSED CLASS HAS A PROMISE.</p><h1>MakeupLedger</h1><p>Keep replacement-session promises visible before they expire.</p></div><span class="local">Local-first · single studio</span></header>
+<section class="stats"><article><small>Open credits</small><b id="open">3</b></article><article><small>Sessions owed</small><b id="sessions">5</b></article><article><small>Outstanding value</small><b id="liability">₩198,000</b></article><article><small>Need attention</small><b id="due">2</b></article></section>
+<div class="layout"><aside><h2>Issue make-up credit</h2><form id="creditForm">
+<label>Reference<input name="reference" maxlength="24" placeholder="MK-1058" required></label><label>Learner<input name="learner" maxlength="40" required></label><label>Course<input name="course" maxlength="50" required></label>
+<div class="row"><label>Issue date<input name="issuedDate" type="date" required></label><label>Expiry date<input name="expiryDate" type="date" required></label></div>
+<div class="row"><label>Sessions<input name="sessions" type="number" min="1" max="100" value="1" required></label><label>Value / session<input name="sessionValueKrw" type="number" min="0" max="10000000" required></label></div>
+<input name="usedSessions" type="hidden" value="0"><button class="primary">Save credit</button><p id="message" class="note">Use a non-sensitive learner label where possible.</p></form></aside>
+<section><div class="sectionhead"><div><p class="eyebrow">FULFILMENT QUEUE</p><h2>Promises that need a booking</h2></div><span>Expired and near-expiry first</span></div><div id="queue" class="queue"></div></section></div>
+</main><script type="module" src="app.js"></script></body></html>
