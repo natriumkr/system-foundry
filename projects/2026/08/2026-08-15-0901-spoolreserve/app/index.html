@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>SpoolReserve</title><link rel="stylesheet" href="styles.css"></head>
+<body><main>
+  <header><div><p class="eyebrow">KNOW BEFORE YOU PRINT.</p><h1>SpoolReserve</h1><p>Match real filament weight to the next job, with safety margin included.</p></div><span class="local">Local data · no account</span></header>
+  <section class="stats"><article><small>Active spools</small><b id="count">3</b></article><article><small>Filament left</small><b id="grams">1,691g</b></article><article><small>Stock value</small><b id="value">₩44,942</b></article><article><small>Job matches</small><b id="matches">1</b></article></section>
+  <div class="layout"><aside><h2>Add a spool</h2><form id="spoolForm">
+    <label>Spool code<input name="id" maxlength="24" required placeholder="PLA-GRY-03"></label>
+    <div class="row"><label>Material<select id="material" name="material"></select></label><label>Color<input name="color" maxlength="30" required></label></div>
+    <div class="row"><label>Gross weight (g)<input name="grossG" type="number" min="1" max="10000" required></label><label>Empty spool (g)<input name="tareG" type="number" min="1" max="2000" required></label></div>
+    <div class="row"><label>Purchased net (g)<input name="purchaseG" type="number" min="1" max="10000" value="1000" required></label><label>Price (KRW)<input name="priceKrw" type="number" min="0" max="1000000" required></label></div>
+    <button class="primary">Save spool</button><p id="message" class="note">Weigh the spool as-is; the app subtracts its empty spool weight.</p>
+  </form></aside>
+  <section><div class="sectionhead"><div><p class="eyebrow">JOB FEASIBILITY</p><h2>Choose the spool that can finish</h2></div><span id="needed">202g incl. margin</span></div>
+    <form id="jobForm" class="jobbar"><label>Job<input name="name" value="Enclosure set" required></label><label>Material<select id="jobMaterial" name="material"></select></label><label>Model estimate (g)<input name="requiredG" type="number" value="180" min="1" required></label><label>Safety %<input name="safetyPct" type="number" value="12" min="0" max="100" required></label><button class="primary">Check fit</button></form><p id="jobMessage" class="note"></p>
+    <div id="list" class="list"><article class="spool fit"><div class="dot dark"></div><div><span class="tag">PLA</span><h3>Matte Black · PLA-BLK-01</h3><p>645g left · ₩14,190 stock value</p></div><div class="decision"><b>3 runs</b><small>202g needed</small></div><button>Use 180g</button></article></div>
+  </section></div>
+</main><script type="module" src="app.js"></script></body></html>
